@@ -1,0 +1,21 @@
+{
+  "name": "driver-safety-ai",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": ["frontend"],
+  "scripts": {
+    "dev":        "npm run dev --workspace=frontend",
+    "build":      "npm run build --workspace=frontend",
+    "frontend":   "npm run dev --workspace=frontend",
+    "backend":    "cd backend && uvicorn app.main:app --reload --port 8000",
+    "worker":     "cd backend && celery -A app.worker worker --loglevel=info",
+    "install:fe": "npm install --workspace=frontend",
+    "install:be": "cd backend && pip install -r requirements.txt",
+    "install:all":"npm run install:fe && npm run install:be",
+    "docker:up":  "docker compose up --build",
+    "docker:down":"docker compose down",
+    "docker:logs":"docker compose logs -f",
+    "test:be":    "cd backend && pytest tests/ -v",
+    "lint":       "npm run lint --workspace=frontend"
+  }
+}
