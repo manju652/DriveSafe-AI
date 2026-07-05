@@ -82,10 +82,17 @@ function LoginForm({ onLogin }: { onLogin: () => void }) {
             </button>
           </form>
 
-          <p className="text-white/25 text-sm text-center mt-5">
-            No account? Register at{" "}
-            <span className="text-violet-400 font-mono">localhost:8000/docs</span>
-          </p>
+         <p className="text-white/25 text-sm text-center mt-5">
+  No account?{" "}
+  <a
+    href="https://drivesafe-ai-1.onrender.com/docs"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-violet-400 hover:underline"
+  >
+    Register API
+  </a>
+</p>
         </div>
       </motion.div>
     </div>
@@ -461,9 +468,11 @@ xl:col-span-4 glass rounded-3xl overflow-hidden">
         <div className="mt-6 glass rounded-2xl p-3 flex flex-wrap gap-3 items-center">
           <span className="text-white/30 text-sm">Quick links:</span>
           {[
-            ["API Docs",    "http://localhost:8000/docs"],
-            ["Health",     "http://localhost:8000/health"],
-            ["WS Health",  "http://localhost:8000/health/ws"],
+            [
+  ["API Docs", "https://drivesafe-ai-1.onrender.com/docs"],
+  ["Health", "https://drivesafe-ai-1.onrender.com/health"],
+  ["WS Health", "https://drivesafe-ai-1.onrender.com/health/ws"],
+]
           ].map(([label, url]) => (
             <a key={url} href={url} target="_blank" rel="noopener noreferrer"
               className="text-violet-400 hover:text-violet-300 text-sm font-mono border border-violet-500/20 hover:border-violet-500/50 rounded-lg px-3 py-1.5 transition-all">
