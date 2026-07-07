@@ -81,13 +81,13 @@ export default function DetectionSidebar({
 
       {/* Live Metrics Card */}
 
-      <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-4 shadow-[0_0_20px_rgba(0,0,0,.25)]">
+      <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-3 sm:p-4 shadow-[0_0_20px_rgba(0,0,0,.25)]">
 
-        <h2 className="text-lg font-bold mb-4">
+        <h2 className="text-base sm:text-lg font-bold mb-3 sm:mb-4">
           Live Metrics
         </h2>
 
-        <div className="space-y-4">
+        <div className="space-y-3 sm:space-y-4">
 
           <Metric
             icon={<Smile size={16} />}

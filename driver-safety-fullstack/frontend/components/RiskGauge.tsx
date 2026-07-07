@@ -19,8 +19,8 @@ export default function RiskGauge({ score = 0 }: RiskGaugeProps) {
       : "#ef4444";
 
   return (
-    <div className="rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-5 shadow-[0_0_30px_rgba(0,0,0,.3)]">
-      <h2 className="text-lg font-bold text-center mb-4">
+    <div className="rounded-2xl sm:rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-4 sm:p-5 shadow-[0_0_30px_rgba(0,0,0,.3)]">
+      <h2 className="text-base sm:text-lg font-bold text-center mb-3 sm:mb-4">
         Risk Score
       </h2>
 

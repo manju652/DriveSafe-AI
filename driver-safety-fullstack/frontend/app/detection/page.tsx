@@ -71,32 +71,32 @@ return (
   >
     <LiveHeader isLive backendConnected />
 
-    <main className="max-w-[1800px] mx-auto px-8 py-6">
+    <main className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
 
-      <div className="grid grid-cols-12 gap-6">
+      <div className="grid grid-cols-12 gap-4 sm:gap-6">
 
         {/* LEFT COLUMN */}
         <section className="col-span-12 xl:col-span-8">
 
-          <div className="flex items-center justify-between mb-5">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4 sm:mb-5">
 
-            <div>
-              <h1 className="text-3xl font-bold tracking-tight">
+            <div className="min-w-0">
+              <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold tracking-tight">
                 Live Driver Monitoring
               </h1>
 
-              <p className="text-zinc-400 mt-1">
+              <p className="text-zinc-400 mt-1 text-sm sm:text-base">
                 AI Powered Real-Time Driver Safety Detection
               </p>
             </div>
 
-            <div className="flex gap-3">
+            <div className="flex flex-wrap gap-2 sm:gap-3">
 
-              <div className="rounded-full border border-green-500/20 bg-green-500/10 px-4 py-2 text-sm text-green-400">
+              <div className="rounded-full border border-green-500/20 bg-green-500/10 px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm text-green-400 whitespace-nowrap">
                 🟢 Face Detected
               </div>
 
-              <div className="rounded-full border border-pink-500/20 bg-pink-500/10 px-4 py-2 text-sm text-pink-400">
+              <div className="rounded-full border border-pink-500/20 bg-pink-500/10 px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm text-pink-400 whitespace-nowrap">
                 AI Monitoring
               </div>
 
@@ -108,7 +108,8 @@ return (
 
           <div
             className="
-              rounded-3xl
+              rounded-2xl
+              sm:rounded-3xl
               border
               border-white/10
               bg-white/5
@@ -118,7 +119,7 @@ return (
             "
           >
 
-            <div className="h-[620px]">
+            <div className="h-[320px] sm:h-[420px] md:h-[500px] xl:h-[620px]">
   
 
             <DriverCamera
@@ -129,7 +130,7 @@ return (
         </div>
 
         {/* Buttons */}
-        <div className="mt-6 flex items-center gap-4">
+        <div className="mt-4 sm:mt-6 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
 
           <button
             onClick={() => {
@@ -145,8 +146,12 @@ return (
               from-pink-500
               via-rose-500
               to-red-500
-              px-8
-              py-4
+              px-5
+              sm:px-8
+              py-3
+              sm:py-4
+              text-sm
+              sm:text-base
               font-semibold
               shadow-[0_0_30px_rgba(236,72,153,.35)]
               transition-all
@@ -165,8 +170,12 @@ return (
               border-white/10
               bg-white/5
               backdrop-blur-xl
-              px-8
-              py-4
+              px-5
+              sm:px-8
+              py-3
+              sm:py-4
+              text-sm
+              sm:text-base
               font-semibold
               transition
               hover:bg-white/10

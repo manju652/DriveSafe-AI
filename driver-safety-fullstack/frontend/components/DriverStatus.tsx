@@ -22,9 +22,9 @@ export default function DriverStatus({
   const safe = risk < 35;
 
   return (
-    <div className="rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-5 shadow-[0_0_30px_rgba(0,0,0,.3)]">
+    <div className="rounded-2xl sm:rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-4 sm:p-5 shadow-[0_0_30px_rgba(0,0,0,.3)]">
 
-      <h2 className="text-lg font-bold mb-4">
+      <h2 className="text-base sm:text-lg font-bold mb-3 sm:mb-4">
         Driver Status
       </h2>
 

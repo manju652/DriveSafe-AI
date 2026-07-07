@@ -837,7 +837,8 @@ if (microSleep) {
 relative
 w-full
 h-full
-rounded-[32px]
+rounded-2xl
+sm:rounded-[32px]
 overflow-hidden
 
 bg-[#09090B]
@@ -849,7 +850,8 @@ shadow-[0_0_60px_rgba(168,85,247,0.25)]
 
 before:absolute
 before:inset-0
-before:rounded-[32px]
+before:rounded-2xl
+sm:before:rounded-[32px]
 before:border
 before:border-pink-500/20
 before:pointer-events-none
@@ -914,14 +916,16 @@ bg-[radial-gradient(circle_at_center,transparent_55%,rgba(0,0,0,0.35))]
       {status === "ready" && (
         <>
           {/* Top-left: LIVE · FPS · Timer */}
-          <div className="absolute top-3 left-3 flex items-center gap-2">
-            <div className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-black/40 backdrop-blur-xl border border-white/10 shadow-lg">
+          <div className="absolute top-2 left-2 sm:top-3 sm:left-3 flex items-center gap-1.5 sm:gap-2 flex-wrap max-w-[62%] sm:max-w-none">
+            <div className="flex items-center gap-1 sm:gap-1.5 px-2 py-1.5 sm:px-3 sm:py-2 rounded-lg sm:rounded-xl bg-black/40 backdrop-blur-xl border border-white/10 shadow-lg">
               <div className="relative">
 
 <div className="
 absolute
-w-3
-h-3
+w-2.5
+h-2.5
+sm:w-3
+sm:h-3
 bg-red-500
 rounded-full
 animate-ping
@@ -929,51 +933,49 @@ animate-ping
 
 <div className="
 relative
-w-3
-h-3
+w-2.5
+h-2.5
+sm:w-3
+sm:h-3
 bg-red-500
 rounded-full
 "/>
 
 </div>
-              <span className="text-white text-xs font-bold tracking-widest">LIVE</span>
+              <span className="text-white text-[10px] sm:text-xs font-bold tracking-widest">LIVE</span>
             </div>
-            <div className="px-2.5 py-1 rounded-xl bg-black/40
+            <div className="px-2 py-1 sm:px-2.5 sm:py-1 rounded-lg sm:rounded-xl bg-black/40
 backdrop-blur-xl
 border
 border-white/10
-shadow-lg
-rounded-xl">
-              <span className="text-white/70 text-xs font-mono">{hud.fps} FPS</span>
+shadow-lg">
+              <span className="text-white/70 text-[10px] sm:text-xs font-mono">{hud.fps} FPS</span>
             </div>
-            <div className="px-2.5 py-1 rounded-xl bg-black/40
+            <div className="px-2 py-1 sm:px-2.5 sm:py-1 rounded-lg sm:rounded-xl bg-black/40
 backdrop-blur-xl
 border
 border-white/10
-shadow-lg
-rounded-xl">
-              <span className="text-white/70 text-xs font-mono">{fmt(hud.elapsed)}</span>
+shadow-lg">
+              <span className="text-white/70 text-[10px] sm:text-xs font-mono">{fmt(hud.elapsed)}</span>
             </div>
           </div>
 
           {/* Top-right: face + driver status */}
-          <div className="absolute top-3 right-3 flex items-center gap-2">
-            <div className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-black/40
+          <div className="absolute top-2 right-2 sm:top-3 sm:right-3 flex items-center gap-1.5 sm:gap-2 flex-wrap justify-end max-w-[36%] sm:max-w-none">
+            <div className="flex items-center gap-1 sm:gap-1.5 px-2 py-1.5 sm:px-3 sm:py-2 rounded-lg sm:rounded-xl bg-black/40
 backdrop-blur-xl
 border
 border-white/10
-shadow-lg
-rounded-xl">
-              <span className={`w-1.5 h-1.5 rounded-full ${hud.faceDetected ? "bg-emerald-400" : "bg-white/20"}`} />
-              <span className="text-white/70 text-xs">{hud.faceDetected ? "Face OK" : "No face"}</span>
+shadow-lg">
+              <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${hud.faceDetected ? "bg-emerald-400" : "bg-white/20"}`} />
+              <span className="text-white/70 text-[10px] sm:text-xs whitespace-nowrap">{hud.faceDetected ? "Face OK" : "No face"}</span>
             </div>
-            <div className="px-3 py-2 rounded-xl bg-black/40
+            <div className="px-2 py-1.5 sm:px-3 sm:py-2 rounded-lg sm:rounded-xl bg-black/40
 backdrop-blur-xl
 border
 border-white/10
-shadow-lg
-rounded-xl">
-              <span className={`text-xs font-bold ${statusColor}`}>
+shadow-lg">
+              <span className={`text-[10px] sm:text-xs font-bold whitespace-nowrap ${statusColor}`}>
   {!isDetecting ? "Stopped" : hud.status}
 </span>
             </div>
@@ -981,25 +983,25 @@ rounded-xl">
 
           {/* Micro-sleep banner */}
           {hud.microSleep && (
-            <div className="absolute top-14 left-0 right-0 flex justify-center">
-              <div className="px-6 py-2 rounded-xl bg-red-600/80 backdrop-blur-md border border-red-500 animate-pulse">
-                <span className="text-white text-sm font-bold tracking-widest">⚠ MICRO-SLEEP DETECTED ⚠</span>
+            <div className="absolute top-11 sm:top-14 left-0 right-0 flex justify-center px-2">
+              <div className="px-3 py-1.5 sm:px-6 sm:py-2 rounded-lg sm:rounded-xl bg-red-600/80 backdrop-blur-md border border-red-500 animate-pulse max-w-full">
+                <span className="text-white text-[11px] sm:text-sm font-bold tracking-widest text-center block">⚠ MICRO-SLEEP DETECTED ⚠</span>
               </div>
             </div>
           )}
 
           {/* Phone confirmed banner */}
           {hud.phoneConfirmed && !hud.microSleep && (
-            <div className="absolute top-14 left-0 right-0 flex justify-center">
-              <div className="px-6 py-2 rounded-xl bg-orange-600/80 backdrop-blur-md border border-orange-500 animate-pulse">
-                <span className="text-white text-sm font-bold tracking-widest">📱 PHONE USAGE DETECTED</span>
+            <div className="absolute top-11 sm:top-14 left-0 right-0 flex justify-center px-2">
+              <div className="px-3 py-1.5 sm:px-6 sm:py-2 rounded-lg sm:rounded-xl bg-orange-600/80 backdrop-blur-md border border-orange-500 animate-pulse max-w-full">
+                <span className="text-white text-[11px] sm:text-sm font-bold tracking-widest text-center block">📱 PHONE USAGE DETECTED</span>
               </div>
             </div>
           )}
 
           {/* Bottom HUD — Row 1: eye / mouth metrics */}
-          <div className="absolute bottom-3 left-3 right-3">
-            <div className="flex gap-2 mb-2 flex-wrap">
+          <div className="absolute bottom-2 left-2 right-2 sm:bottom-3 sm:left-3 sm:right-3">
+            <div className="flex gap-1.5 sm:gap-2 mb-1.5 sm:mb-2 flex-wrap">
               {[
                 { label: "EAR",    value: hud.ear.toFixed(2),     warn: hud.ear < EAR_DROWSY },
                 { label: "L-EAR",  value: hud.leftEAR.toFixed(2), warn: hud.leftEAR < EAR_DROWSY },
@@ -1010,21 +1012,20 @@ rounded-xl">
                 { label: "Yawns",  value: hud.yawnCount,          warn: hud.yawnCount > 2 },
                 { label: "PERCLOS",value: `${hud.perclos}%`,      warn: hud.perclos > 15 },
               ].map(({ label, value, warn }) => (
-                <div key={label} className="px-2.5 py-1.5 rounded-xl bg-black/40
+                <div key={label} className="px-1.5 py-1 sm:px-2.5 sm:py-1.5 rounded-lg sm:rounded-xl bg-black/40
 backdrop-blur-xl
 border
 border-white/10
-shadow-lg
-rounded-xl">
-                  <p className="text-white/35 text-[9px] uppercase tracking-wide leading-none mb-0.5">{label}</p>
-                  <p className={`text-sm font-bold font-mono leading-none ${warn ? "text-red-400" : "text-white"}`}>{value}</p>
+shadow-lg">
+                  <p className="text-white/35 text-[8px] sm:text-[9px] uppercase tracking-wide leading-none mb-0.5">{label}</p>
+                  <p className={`text-xs sm:text-sm font-bold font-mono leading-none ${warn ? "text-red-400" : "text-white"}`}>{value}</p>
                 </div>
               ))}
             </div>
 
             {/* Row 2: head pose + gaze + scores */}
-            <div className="flex gap-2 flex-wrap items-end justify-between">
-              <div className="flex gap-2 flex-wrap">
+            <div className="flex gap-1.5 sm:gap-2 flex-wrap items-end justify-between">
+              <div className="hidden sm:flex gap-2 flex-wrap">
                 {[
                   { label: "Pitch",  value: `${hud.pitch > 0 ? "↓" : "↑"}${Math.abs(hud.pitch).toFixed(1)}°`, warn: Math.abs(hud.pitch) > PITCH_DOWN },
                   { label: "Yaw",    value: `${hud.yaw > 0 ? "→" : "←"}${Math.abs(hud.yaw).toFixed(1)}°`,    warn: Math.abs(hud.yaw) > YAW_SIDE },
@@ -1038,8 +1039,7 @@ rounded-xl">
 backdrop-blur-xl
 border
 border-white/10
-shadow-lg
-rounded-xl">
+shadow-lg">
                     <p className="text-white/35 text-[9px] uppercase tracking-wide leading-none mb-0.5">{label}</p>
                     <p className={`text-sm font-bold font-mono leading-none ${warn ? "text-orange-400" : "text-white"}`}>{value}</p>
                   </div>
@@ -1047,33 +1047,30 @@ rounded-xl">
               </div>
 
               {/* Scores */}
-              <div className="flex gap-2">
-                <div className="px-3 py-1.5 rounded-xl bg-black/40
+              <div className="flex gap-1.5 sm:gap-2 ml-auto sm:ml-0">
+                <div className="px-2 py-1 sm:px-3 sm:py-1.5 rounded-lg sm:rounded-xl bg-black/40
 backdrop-blur-xl
 border
 border-white/10
-shadow-lg
-rounded-xl">
-                  <p className="text-white/35 text-[9px] uppercase tracking-wide leading-none mb-0.5">Fatigue</p>
-                  <p className={`text-sm font-bold font-mono ${hud.fatigue > 60 ? "text-red-400" : hud.fatigue > 30 ? "text-yellow-400" : "text-emerald-400"}`}>{hud.fatigue}%</p>
+shadow-lg">
+                  <p className="text-white/35 text-[8px] sm:text-[9px] uppercase tracking-wide leading-none mb-0.5">Fatigue</p>
+                  <p className={`text-xs sm:text-sm font-bold font-mono ${hud.fatigue > 60 ? "text-red-400" : hud.fatigue > 30 ? "text-yellow-400" : "text-emerald-400"}`}>{hud.fatigue}%</p>
                 </div>
-                <div className="px-3 py-1.5 rounded-xl bg-black/40
+                <div className="px-2 py-1 sm:px-3 sm:py-1.5 rounded-lg sm:rounded-xl bg-black/40
 backdrop-blur-xl
 border
 border-white/10
-shadow-lg
-rounded-xl">
-                  <p className="text-white/35 text-[9px] uppercase tracking-wide leading-none mb-0.5">Attn</p>
-                  <p className={`text-sm font-bold font-mono ${hud.attention < 50 ? "text-red-400" : hud.attention < 70 ? "text-yellow-400" : "text-emerald-400"}`}>{hud.attention}%</p>
+shadow-lg">
+                  <p className="text-white/35 text-[8px] sm:text-[9px] uppercase tracking-wide leading-none mb-0.5">Attn</p>
+                  <p className={`text-xs sm:text-sm font-bold font-mono ${hud.attention < 50 ? "text-red-400" : hud.attention < 70 ? "text-yellow-400" : "text-emerald-400"}`}>{hud.attention}%</p>
                 </div>
-                <div className="px-3 py-1.5 rounded-xl bg-black/40
+                <div className="px-2 py-1 sm:px-3 sm:py-1.5 rounded-lg sm:rounded-xl bg-black/40
 backdrop-blur-xl
 border
 border-white/10
-shadow-lg
-rounded-xl">
-                  <p className="text-white/35 text-[9px] uppercase tracking-wide leading-none mb-0.5">Risk</p>
-                  <p className={`text-sm font-bold font-mono ${riskColor}`}>{hud.risk}%</p>
+shadow-lg">
+                  <p className="text-white/35 text-[8px] sm:text-[9px] uppercase tracking-wide leading-none mb-0.5">Risk</p>
+                  <p className={`text-xs sm:text-sm font-bold font-mono ${riskColor}`}>{hud.risk}%</p>
                 </div>
               </div>
             </div>
